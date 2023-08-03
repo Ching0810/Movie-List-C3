@@ -10,6 +10,7 @@ app.set('view engine', '.hbs');
 app.set('views', './views');
 app.use(express.static('public'))
 
+// 用get就是在設定路由
 app.get('/', (req, res) => {
   res.redirect('/movies')
 })
@@ -24,6 +25,7 @@ app.get('/movies', (req, res) => {
       return false
     })
   ) : movies
+  // 把keyword回傳到前端，目的為在search bar持續顯示輸入的搜尋字串
   res.render('index', { movies: matchedMovies, BASE_IMG_URL, keyword })
 })
 
