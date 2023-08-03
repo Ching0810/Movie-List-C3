@@ -15,12 +15,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/movies', (req, res) => {
+  // index mean render "index.hbs" result
   res.render('index', { movies, BASE_IMG_URL })
 })
 
 app.get('/movie/:id', (req, res) => {
   const id = req.params.id
-  res.send(`read movie: ${id}`)
+  const movie = movies.find(movie => movie.id.toString() === id)
+  res.render('detail', { movie, BASE_IMG_URL })
 })
 
 app.listen(port, () => {
