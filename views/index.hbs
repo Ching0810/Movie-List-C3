@@ -2,13 +2,11 @@
   <!-- search bar -->
   <div class="row" id="search-bar">
     <div class="col-12">
-      <form action="/">
+      <form action="/movies">
         <div class="input-group mb-3">
-          <input type="text" name="q" class="form-control" placeholder="Enter movie name to search..."
-            aria-label="Movie Name..." aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
-          </div>
+          <input type="text" name="search" class="form-control" placeholder="Enter movies info to search..." aria-label="movies info"
+            aria-describedby="button-addon-search" value="{{keyword}}">
+          <button class="btn btn-outline-dark" type="submit" id="button-addon-search">Search</button>
         </div>
       </form>
     </div>
@@ -19,10 +17,10 @@
     <div class="col-sm-3">
       <a href="/movie/{{movie.id}}" class="text-secondary">
         <div class="card mb-2">
-          <img class="card-img-top" src="{{ ../BASE_IMG_URL }}{{ movie.image }}"
+          <img class="card-img-top" src="{{../BASE_IMG_URL}}{{movie.image}}"
             alt="Card image cap">
           <div class="card-body movie-item-body">
-            <h6 class="card-title">{{ movie.title }}</h6>
+            <h6 class="card-title">{{movie.title}}</h6>
           </div>
         </div>
       </a>
